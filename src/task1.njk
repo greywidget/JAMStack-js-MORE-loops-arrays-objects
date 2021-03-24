@@ -1,0 +1,35 @@
+---
+subtitle: Nested Loops
+layout: base.njk
+jsfile: task1.js
+eleventyNavigation:
+  key: Task1
+  order: 2
+---
+    
+<div class="col-10 text-start">
+    <h2>{{ subtitle }}</h2>
+    <p>This task was to create nested loops to print out the times table from 1 to 12.</p>
+    <h2 class="pt-3">Javascript</h2>
+    <div class="bg-white">
+    <pre><code>function timesTable(from, to) {
+
+  var outStr = "";
+  for (var i = from; i &lt;= to; i++) {
+      outStr += '&lt;div class="col-6 col-sm-4 col-md-3 col-lg-2"&gt;\n';
+
+      outStr += `&lt;strong&gt;${i} x table&lt;/strong&gt;&lt;pre&gt;\n`;
+      
+      for (var j = from; j &lt;= to; j++) {
+          outStr += `${i} x ${j} = ${i * j}\n`;
+      }
+      outStr += '&lt;/pre&gt;&lt;/div&gt;\n';
+  }
+  document.getElementById('js-output').innerHTML = outStr;
+}</code></pre>
+</div>
+    <button type="button" class="btn btn-secondary text-warning" onclick="timesTable(1, 12)">Run Javascript</button>
+    <h2 class="pt-3">Output</h2>
+    <div class="row" id="js-output">
+    </div>
+</div>

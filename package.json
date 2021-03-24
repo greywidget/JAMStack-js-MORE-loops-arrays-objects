@@ -1,0 +1,17 @@
+{
+  "name": "js-more-loops-arrays-objects",
+  "version": "1.0.0",
+  "description": "This week we continued with some more exercises involving **Loops**, **Arrays** and **Objects**",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "keywords": [],
+  "author": "Craig Richards",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.1.6"
+  }
+}

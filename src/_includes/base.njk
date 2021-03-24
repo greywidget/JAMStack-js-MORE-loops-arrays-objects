@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    {% if jsfile %}
+    <script type="text/javascript" src="/js/{{ jsfile }}"></script>
+    {% endif %}
+</head>
+
+<body class="bg-light text-center">
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand text-warning" href="{{ '/' | url }}">
+          <img src="/img/greywidget.jpg" alt="the author and his cat" width="48" height="48" class="d-inline-block align-top">
+          <span class="display-6">{{ metadata.title }}</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarBlog" aria-controls="navBarBlog" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navBarBlog">
+          <div class="navbar-nav">
+          {%- for entry in collections.all | eleventyNavigation %}
+            <a class="nav-link {% if entry.url == page.url %} active{% endif %}"{% if entry.url == page.url %} aria-current="page"{% endif %} href="{{ entry.url | url }}">{{ entry.title }}</a>
+          {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+
+    <header>
+        <h1>JS MORE Loops Arrays and Objects</h1>
+    </header>
+
+     <!-- Main Container -->
+    <div class="container-fluid pb-5">
+
+      <main class="row justify-content-center pt-3 main-row">
+        {{ content | safe }}
+      </main>
+
+    </div> <!-- main container div -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+
+</html>
