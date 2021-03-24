@@ -1,17 +1,19 @@
-// Print out all of the times tables from 1 to 12
+// Calculate the total cost of items in the Shopping Cart
+// N.B that this uses the shoppingCart object from shoppingCart.js
 
-function timesTable(from, to) {
-
-    var outStr = "";
-    for (var i = from; i <= to; i++) {
-        outStr += '<div class="col-6 col-sm-4 col-md-3 col-lg-2">\n';
-
-        outStr += `<strong>${i} x table</strong><pre>\n`;
-        
-        for (var j = from; j <= to; j++) {
-            outStr += `${i} x ${j} = ${i * j}\n`;
-        }
-        outStr += '</pre></div>\n';
-    }
+function shoppingCartTotal() {
+    var theBill = getCartTotal(shoppingCart).toFixed(2);
+    var outStr = `Your bill for today is: £${theBill}`;
     document.getElementById('js-output').innerHTML = outStr;
+}
+
+function getCartTotal(cart) {
+    var totalPrice = 0;
+    var itemPrice = 0;
+
+    for (const item of cart) {
+        itemPrice = item.quantity * item.price;
+        totalPrice += itemPrice;
+    }
+    return totalPrice;
 }

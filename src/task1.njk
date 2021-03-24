@@ -1,5 +1,5 @@
 ---
-subtitle: Nested Loops
+subtitle: Calculate the total cost of the items in the shopping cart
 layout: base.njk
 jsfile: task1.js
 eleventyNavigation:
@@ -9,27 +9,36 @@ eleventyNavigation:
     
 <div class="col-10 text-start">
     <h2>{{ subtitle }}</h2>
-    <p>This task was to create nested loops to print out the times table from 1 to 12.</p>
+    <p>Each item in the cart has a <em>quantity</em> and a <em>price</em>.
+      Loop through the items in the cart and calculate the total.</p>
+    <p>For brevity, the javascript for the Shopping Cart itself is not shown 
+      below. Please see the <a href="{{ '/' | url }}">home page</a> 
+      for details of the Shopping Cart.</p>
     <h2 class="pt-3">Javascript</h2>
     <div class="bg-white">
-    <pre><code>function timesTable(from, to) {
+    <pre><code>// Calculate the total cost of items in the Shopping Cart
+// N.B that this uses the shoppingCart object from shoppingCart.js
 
-  var outStr = "";
-  for (var i = from; i &lt;= to; i++) {
-      outStr += '&lt;div class="col-6 col-sm-4 col-md-3 col-lg-2"&gt;\n';
+function shoppingCartTotal() {
+    var theBill = getCartTotal(shoppingCart).toFixed(2);
+    var outStr = `Your bill for today is: £${theBill}`;
+    document.getElementById('js-output').innerHTML = outStr;
+}
 
-      outStr += `&lt;strong&gt;${i} x table&lt;/strong&gt;&lt;pre&gt;\n`;
-      
-      for (var j = from; j &lt;= to; j++) {
-          outStr += `${i} x ${j} = ${i * j}\n`;
-      }
-      outStr += '&lt;/pre&gt;&lt;/div&gt;\n';
-  }
-  document.getElementById('js-output').innerHTML = outStr;
+function getCartTotal(cart) {
+    var totalPrice = 0;
+    var itemPrice = 0;
+
+    for (const item of cart) {
+        itemPrice = item.quantity * item.price;
+        totalPrice += itemPrice;
+    }
+    return totalPrice;
 }</code></pre>
 </div>
-    <button type="button" class="btn btn-secondary text-warning" onclick="timesTable(1, 12)">Run Javascript</button>
+    <button type="button" class="btn btn-secondary text-warning" 
+      onclick="shoppingCartTotal()">Run Javascript</button>
     <h2 class="pt-3">Output</h2>
-    <div class="row" id="js-output">
-    </div>
+    <p class="text-danger" id="js-output">
+    </p>
 </div>

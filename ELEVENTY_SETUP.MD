@@ -1,6 +1,7 @@
 # Eleventy Setup Activities.
 This site is created more or less from scrap again. This documentation is to remind myself of the steps involved in installing eleventy (and eleventyNavigation) and integrating with my GitHub repo.
 
+## Setup Steps
 - Create new project directory
 - Create src directory (currently I'm setting up eleventy so that all of the source files are under `src` and the site is published under `dits`)
 - Create a js subdirectory (of src) for the javascript files.
@@ -54,6 +55,29 @@ module.exports = function(config) {
   },
 ```
 
+- Create `src/_includes/base.njk` with bootstrap, navigation and template for main content (see previous projects for an example)
+- Create additional pages
+
 You should now be able to run `npm run build` to get your site generated into the `dist` folder.
 
 And you can also now run `npm start` to get eleventy to serve pages.
+
+## Deploying
+- Initialise the Repo: `git init`
+- Add our files: `git add .`
+- Commit them: `git commit -m "Initial Version"`
+
+## Setting it up on GitHub
+- Create the Repo (jamstack-build-with-api-data) on GitHub
+- Add the remote: `git remote add origin https://github.com/greywidget/my-project.git`
+- Push the master branch to GitHub: `git push -u origin master`
+
+## Linking to Netlify
+- Go to Netlify Home and login.
+- Under Sites or Team Overview, click on the `New site from Git` button.
+- Click on the `GitHub` button and use the search button to find the repo.
+- If you can't see the repo, click the `Configure Netlify on GitHub` button. This will take you to a Netlify Page in GitHub where you can give Netlify access to all Repos or individual ones. You might need to scroll down to see the Repository access panel.
+- Not that when you return from GitHub to continue configuring the deployment in Netlify, you need to change a couple of settings to match how we have set this project up. 
+    - Set the *Build command* to `npm run build`
+    - Set the *Publish directory* to `dist`
+- Click the `Deploy site` button.

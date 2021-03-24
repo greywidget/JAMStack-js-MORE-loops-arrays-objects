@@ -1,24 +1,4 @@
----
-subtitle: Introduction
-layout: base.njk
-jsfile:
-eleventyNavigation:
-  key: Home
-  order: 1
----
-    
-<div class="col-10 text-start">
-    <h2>{{ subtitle }}</h2>
-    <p>This week was more practical work using <em>Loops</em>
-      <em>Arrays</em> and <em>Objects</em> in
-      <strong>Javascript</strong></p>
-    <p>We were given a number of simple tasks to complete. Each task has its 
-        own page, which you can access from the <em>navbar</em>.</p>
-    <p>The first few tasks are built around a Shopping Cart example. The
-      <strong>javascript</strong> for the Shopping Cart looks like this:</p>
-
-    <div class="bg-white">
-    <pre><code>let shoppingCart = [
+let shoppingCart = [
     {
         name:"loaf of bread",
         type:"food",
@@ -79,5 +59,4 @@ eleventyNavigation:
         quantity:3,
         price:.4
     },
-];</code></pre>
-</div>
+];
