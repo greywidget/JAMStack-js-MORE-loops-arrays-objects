@@ -1,0 +1,49 @@
+---
+subtitle: Apply 20 percent discount to food items.
+layout: base.njk
+jsfile: task2.js
+eleventyNavigation:
+  key: Task2
+  order: 3
+---
+    
+<div class="col-10 text-start">
+    <h2>{{ subtitle }}</h2>
+    <p>Implement a simple discount process, local to the Total Calculation 
+      function, which will apply this discount.</p>
+    <p>For brevity, the javascript for the Shopping Cart itself is not shown 
+      below. Please see the <a href="{{ '/' | url }}">home page</a> 
+      for details of the Shopping Cart.</p>
+    <h2 class="pt-3">Javascript</h2>
+    <div class="bg-white">
+    <pre><code>// Calculate the total cost of items in the Shopping Cart
+// Locally - apply a 20 percent discount to food type items.
+// N.B that this uses the shoppingCart object from shoppingCart.js
+
+function shoppingCartTotal() {
+    var theBill = getCartTotal(shoppingCart).toFixed(2);
+    var outStr = `Your bill for today, with food discount is: £${theBill}`;
+    document.getElementById('js-output').innerHTML = outStr;
+}
+
+function getCartTotal(cart) {
+    var totalPrice = 0;
+    var itemPrice = 0;
+    var foodDiscountPercent = 20;
+
+    for (const item of cart) {
+        itemPrice = item.quantity * item.price;
+        if (item.type == 'food') {
+            itemPrice *= (100 - foodDiscountPercent) / 100;
+        }
+        totalPrice += itemPrice;
+    }
+    return totalPrice;
+}</code></pre>
+</div>
+    <button type="button" class="btn btn-secondary text-warning" 
+      onclick="shoppingCartTotal()">Run Javascript</button>
+    <h2 class="pt-3">Output</h2>
+    <p class="text-danger" id="js-output">
+    </p>
+</div>
