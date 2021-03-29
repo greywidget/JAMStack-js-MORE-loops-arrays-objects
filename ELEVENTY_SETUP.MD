@@ -15,10 +15,9 @@ node_modules
 dist
 ```
 - `npm init --y` Creates a new npm package with the default setup
-- `npm i --save-dev @11ty/eleventy` Installs eleventy.
 - Modify the author in `package.json` if you want.
+- `npm i --save-dev @11ty/eleventy` Installs eleventy.
 - `npm i --save-dev @11ty/eleventy-navigation` Installs eleventy.
-- Create the eleventy config file `.eleventy.js`
 - Create `.eleventy.js` with the following:
 
 ```
