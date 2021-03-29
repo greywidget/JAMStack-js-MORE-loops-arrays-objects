@@ -3,7 +3,7 @@ This site is created more or less from scrap again. This documentation is to rem
 
 ## Setup Steps
 - Create new project directory
-- Create src directory (currently I'm setting up eleventy so that all of the source files are under `src` and the site is published under `dits`)
+- Create src directory (currently I'm setting up eleventy so that all of the source files are under `src` and the site is published under `dist`)
 - Create a js subdirectory (of src) for the javascript files.
 - Create folder `src/_includes`
 - Set up `base.njk` as the main template (in /_includes)
